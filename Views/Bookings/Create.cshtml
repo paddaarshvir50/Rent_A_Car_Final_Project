@@ -1,0 +1,61 @@
+﻿@model Rent_A_Car_Final_Project.Models.Booking
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Booking Created</h1>
+
+
+<hr />
+
+<h1> Thank you for booking Your booking reference number: 000000 @Model.Id</h1>
+<h2> The details of your booking is as follows:</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Customer)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Customer.Name)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Customer.ContactNumber)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Customer.ContactNumber)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Car.RegistrationId)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Car.RegistrationId)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Car.Make)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Car.Make)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Car.Model)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Car.Model)
+    </dd>
+
+
+
+</dl>
+    <img src="/cars/@Html.DisplayFor(model => model.Car.Picture)" />
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

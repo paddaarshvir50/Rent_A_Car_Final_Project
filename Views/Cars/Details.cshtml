@@ -1,0 +1,61 @@
+﻿@model Rent_A_Car_Final_Project.Models.Car
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Car Details </h4>
+    <hr />
+
+    <img src="/cars/@Html.DisplayFor(model => model.Picture)" />
+    <dl class="row">
+
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Make)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RentPricePerDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RentPricePerDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booked)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booked)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Customer"))
+
+    {
+
+        <a class="btn btn-primary" href="/Bookings/Create/@Html.DisplayFor(model => model.Id)" >Book </a>
+
+    }
+
+
+
+
+</div>
